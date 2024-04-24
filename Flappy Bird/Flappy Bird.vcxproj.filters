@@ -32,6 +32,11 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="flappyHeader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
     <Image Include="..\..\..\..\Desktop\floppybird\res\background\cloud.png">
       <Filter>Assets\background</Filter>
     </Image>
@@ -62,10 +67,5 @@
     <Image Include="..\..\..\..\Desktop\floppybird\res\objects\trees_near.png">
       <Filter>Assets\objects</Filter>
     </Image>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="flappyHeader.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>
