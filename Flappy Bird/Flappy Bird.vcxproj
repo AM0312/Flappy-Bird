@@ -144,18 +144,6 @@
   <ItemGroup>
     <ClInclude Include="flappyHeader.h" />
   </ItemGroup>
-  <ItemGroup>
-    <Image Include="..\..\..\..\Desktop\floppybird\res\background\cloud.png" />
-    <Image Include="..\..\..\..\Desktop\floppybird\res\background\ground.png" />
-    <Image Include="..\..\..\..\Desktop\floppybird\res\bird\frame-1.png" />
-    <Image Include="..\..\..\..\Desktop\floppybird\res\bird\frame-2.png" />
-    <Image Include="..\..\..\..\Desktop\floppybird\res\bird\frame-3.png" />
-    <Image Include="..\..\..\..\Desktop\floppybird\res\bird\frame-4.png" />
-    <Image Include="..\..\..\..\Desktop\floppybird\res\objects\brick.png" />
-    <Image Include="..\..\..\..\Desktop\floppybird\res\objects\trees.png" />
-    <Image Include="..\..\..\..\Desktop\floppybird\res\objects\trees_far.png" />
-    <Image Include="..\..\..\..\Desktop\floppybird\res\objects\trees_near.png" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
