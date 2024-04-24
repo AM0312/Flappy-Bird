@@ -63,4 +63,9 @@
       <Filter>Assets\objects</Filter>
     </Image>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="flappyHeader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
 </Project>

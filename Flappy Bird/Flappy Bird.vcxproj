@@ -153,6 +153,9 @@
     <Image Include="..\..\..\..\Desktop\floppybird\res\objects\trees_far.png" />
     <Image Include="..\..\..\..\Desktop\floppybird\res\objects\trees_near.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="flappyHeader.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
