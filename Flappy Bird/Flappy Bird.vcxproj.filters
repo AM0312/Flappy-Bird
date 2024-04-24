@@ -13,10 +13,54 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Assets">
+      <UniqueIdentifier>{0d356cdc-a73b-42e7-a7ec-5a802e4e3858}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\background">
+      <UniqueIdentifier>{ce5453b4-02f4-4a37-ab27-6df378c653fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\bird">
+      <UniqueIdentifier>{774c9871-2186-406b-9897-4e444d22b85d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\objects">
+      <UniqueIdentifier>{e18c0c2a-1bda-481d-bee8-91b5b86d45e6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Flappy Bird.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\..\..\Desktop\floppybird\res\background\cloud.png">
+      <Filter>Assets\background</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Desktop\floppybird\res\background\ground.png">
+      <Filter>Assets\background</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Desktop\floppybird\res\bird\frame-1.png">
+      <Filter>Assets\bird</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Desktop\floppybird\res\bird\frame-2.png">
+      <Filter>Assets\bird</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Desktop\floppybird\res\bird\frame-3.png">
+      <Filter>Assets\bird</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Desktop\floppybird\res\bird\frame-4.png">
+      <Filter>Assets\bird</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Desktop\floppybird\res\objects\brick.png">
+      <Filter>Assets\objects</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Desktop\floppybird\res\objects\trees.png">
+      <Filter>Assets\objects</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Desktop\floppybird\res\objects\trees_far.png">
+      <Filter>Assets\objects</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Desktop\floppybird\res\objects\trees_near.png">
+      <Filter>Assets\objects</Filter>
+    </Image>
   </ItemGroup>
 </Project>
