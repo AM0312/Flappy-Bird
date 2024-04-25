@@ -142,6 +142,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Flappy Bird.cpp" />
+    <ClCompile Include="frameupdate.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="flappyHeader.h" />
