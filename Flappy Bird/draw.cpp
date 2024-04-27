@@ -125,3 +125,46 @@ void init()
 
 	glEnable(GL_TEXTURE_2D);
 }
+
+GLuint base;
+void initialiseList()
+{
+	base = glGenLists(6);
+	glListBase(base);
+}
+
+void update(double temp)
+{
+	syncBird += temp;
+	if (syncBird >= 120)
+	{
+		birdPhys++;
+		if (birdPhys == 3)
+			birdPhys = 0;
+		syncBird -= 120;
+	}
+
+}
+
+void updateSynchronised()
+{
+	if (gameover == 0)
+	{
+		groundX -= 4;
+		if (groundX < -resX)
+			groundX = 0;
+
+		skyX -= 0.75;
+		if (skyX < -resX)
+			skyX = 0;
+
+		treeX -= 2;
+		if (treeX < -resX)
+			treeX = 0;
+
+		treeX2 -= 1.75;
+		if (treeX2 < -resX)
+			treeX2 = 0;
+	}
+
+}
