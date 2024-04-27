@@ -4,6 +4,7 @@
 #include <vector>
 #include <string>
 #include <math.h>
+#include "flappyHeader.h"
 #include "../SOIL2/SOIL2.h"
 using namespace std;
 
@@ -21,6 +22,8 @@ float skyX, treeX, treeX2, groundX;
 int birdPhys, tmp, highscore, insidebrick, gameover, prevy;
 double syncBird;
 unsigned int i, j;
+
+GLuint base;
 
 void init()
 {
@@ -121,7 +124,6 @@ void init()
 	glEnable(GL_TEXTURE_2D);
 }
 
-GLuint base;
 void initialiseList()
 {
 	base = glGenLists(6);
@@ -131,7 +133,7 @@ void initialiseList()
 void update(double temp)
 {
 	syncBird += temp;
-	if (syncBird >= 120)
+	if (syncBird >= 120) //6fps wing animation
 	{
 		birdPhys++;
 		if (birdPhys == 3)
@@ -143,35 +145,34 @@ void update(double temp)
 
 void updateSynchronised()
 {
-	if (gameover == 0)
+	if (!gameover)
 	{
 		groundX -= 4;
-		if (groundX < -resX)
-			groundX = 0;
-
+		if (groundX < -resX) groundX = 0;
+		
 		skyX -= 0.75;
-		if (skyX < -resX)
-			skyX = 0;
-
+		if (skyX < -resX) skyX = 0;
+		
 		treeX -= 2;
-		if (treeX < -resX)
-			treeX = 0;
+		if (treeX < -resX) treeX = 0;
 
 		treeX2 -= 1.75;
-		if (treeX2 < -resX)
-			treeX2 = 0;
+		if (treeX2 < -resX) treeX2 = 0;
 	}
-
 }
 
 void staticBird()
 {
 	glNewList(base + 0, GL_COMPILE);
 	glBegin(GL_QUADS);
-	glTexCoord2f(0.0, 0.0); glVertex3f(0, resY / 2, 0);
-	glTexCoord2f(1.0, 0.0); glVertex3f(30, resY / 2, 0);
-	glTexCoord2f(1.0, -1.0); glVertex3f(30, (resY / 2) + 30, 0);
-	glTexCoord2f(0.0, -1.0); glVertex3f(0, (resY / 2) + 30, 0);
+	glTexCoord2f(0.0, 0.0); 
+	glVertex3f(0, resY / 2, 0);
+	glTexCoord2f(1.0, 0.0); 
+	glVertex3f(30, resY / 2, 0);
+	glTexCoord2f(1.0, -1.0); 
+	glVertex3f(30, (resY / 2) + 30, 0);
+	glTexCoord2f(0.0, -1.0); 
+	glVertex3f(0, (resY / 2) + 30, 0);
 	glEnd();
 	glEndList();
 }
@@ -180,10 +181,14 @@ void staticGround()
 {
 	glNewList(base + 1, GL_COMPILE);
 	glBegin(GL_QUADS);
-	glTexCoord2f(0.0, 0.0); glVertex3f(0, 0, 0);
-	glTexCoord2f(1.0, 0.0); glVertex3f(resX * 2, 0, 0);
-	glTexCoord2f(1.0, -1.0); glVertex3f(resX * 2, (resY * 10) / 100, 0);
-	glTexCoord2f(0.0, -1.0); glVertex3f(0, (resY * 10) / 100, 0);
+	glTexCoord2f(0.0, 0.0); 
+	glVertex3f(0, 0, 0);
+	glTexCoord2f(1.0, 0.0); 
+	glVertex3f(resX * 2, 0, 0);
+	glTexCoord2f(1.0, -1.0); 
+	glVertex3f(resX * 2, (resY * 10) / 100, 0);
+	glTexCoord2f(0.0, -1.0); 
+	glVertex3f(0, (resY * 10) / 100, 0);
 	glEnd();
 	glEndList();
 }
@@ -192,10 +197,14 @@ void staticSky()
 {
 	glNewList(base + 2, GL_COMPILE);
 	glBegin(GL_QUADS);
-	glTexCoord2f(0.0, 0.0); glVertex3f(0, 0, 0);
-	glTexCoord2f(1.0, 0.0); glVertex3f(resX * 2, 0, 0);
-	glTexCoord2f(1.0, -1.0); glVertex3f(resX * 2, resY, 0);
-	glTexCoord2f(0.0, -1.0); glVertex3f(0, resY, 0);
+	glTexCoord2f(0.0, 0.0); 
+	glVertex3f(0, 0, 0);
+	glTexCoord2f(1.0, 0.0); 
+	glVertex3f(resX * 2, 0, 0);
+	glTexCoord2f(1.0, -1.0); 
+	glVertex3f(resX * 2, resY, 0);
+	glTexCoord2f(0.0, -1.0); 
+	glVertex3f(0, resY, 0);
 	glEnd();
 	glEndList();
 }
@@ -204,10 +213,14 @@ void staticTrees()
 {
 	glNewList(base + 3, GL_COMPILE);
 	glBegin(GL_QUADS);
-	glTexCoord2f(0.0, 0.0); glVertex3f(0, 0, 0);
-	glTexCoord2f(1.0, 0.0); glVertex3f(resX * 2, 0, 0);
-	glTexCoord2f(1.0, -1.0); glVertex3f(resX * 2, resY, 0);
-	glTexCoord2f(0.0, -1.0); glVertex3f(0, resY, 0);
+	glTexCoord2f(0.0, 0.0); 
+	glVertex3f(0, 0, 0);
+	glTexCoord2f(1.0, 0.0); 
+	glVertex3f(resX * 2, 0, 0);
+	glTexCoord2f(1.0, -1.0); 
+	glVertex3f(resX * 2, resY, 0);
+	glTexCoord2f(0.0, -1.0); 
+	glVertex3f(0, resY, 0);
 	glEnd();
 	glEndList();
 }
@@ -216,10 +229,14 @@ void staticTrees_2()
 {
 	glNewList(base + 5, GL_COMPILE);
 	glBegin(GL_QUADS);
-	glTexCoord2f(0.0, 0.0); glVertex3f(0, 0, 0);
-	glTexCoord2f(1.0, 0.0); glVertex3f(resX * 2, 0, 0);
-	glTexCoord2f(1.0, -1.0); glVertex3f(resX * 2, resY, 0);
-	glTexCoord2f(0.0, -1.0); glVertex3f(0, resY, 0);
+	glTexCoord2f(0.0, 0.0); 
+	glVertex3f(0, 0, 0);
+	glTexCoord2f(1.0, 0.0); 
+	glVertex3f(resX * 2, 0, 0);
+	glTexCoord2f(1.0, -1.0); 
+	glVertex3f(resX * 2, resY, 0);
+	glTexCoord2f(0.0, -1.0); 
+	glVertex3f(0, resY, 0);
 	glEnd();
 	glEndList();
 }
@@ -228,19 +245,28 @@ void staticBrick()
 {
 	//... BOTTOM BRICK	
 	glNewList(base + 4, GL_COMPILE);
+
 	glBegin(GL_QUADS);
-	glTexCoord2f(0.0, 0.0); glVertex3f(resX, -resY / 2, 0);
-	glTexCoord2f(1.0, 0.0); glVertex3f(resX + 50, -resY / 2, 0);
-	glTexCoord2f(1.0, -1.0); glVertex3f(resX + 50, resY / 2 - 38, 0);
-	glTexCoord2f(0.0, -1.0); glVertex3f(resX, resY / 2 - 38, 0);
+	glTexCoord2f(0.0, 0.0); 
+	glVertex3f(resX, -resY / 2, 0);
+	glTexCoord2f(1.0, 0.0); 
+	glVertex3f(resX + 50, -resY / 2, 0);
+	glTexCoord2f(1.0, -1.0); 
+	glVertex3f(resX + 50, resY / 2 - 38, 0);
+	glTexCoord2f(0.0, -1.0); 
+	glVertex3f(resX, resY / 2 - 38, 0);
 	glEnd();
 
 	//.... TOP BRICK
 	glBegin(GL_QUADS);
-	glTexCoord2f(0.0, 0.0); glVertex3f(resX, resY + resY / 2, 0);
-	glTexCoord2f(1.0, 0.0); glVertex3f(resX + 50, resY + resY / 2, 0);
-	glTexCoord2f(1.0, -1.0); glVertex3f(resX + 50, resY / 2 + 38, 0);
-	glTexCoord2f(0.0, -1.0); glVertex3f(resX, resY / 2 + 38, 0);
+	glTexCoord2f(0.0, 0.0); 
+	glVertex3f(resX, resY + resY / 2, 0);
+	glTexCoord2f(1.0, 0.0); 
+	glVertex3f(resX + 50, resY + resY / 2, 0);
+	glTexCoord2f(1.0, -1.0); 
+	glVertex3f(resX + 50, resY / 2 + 38, 0);
+	glTexCoord2f(0.0, -1.0); 
+	glVertex3f(resX, resY / 2 + 38, 0);
 	glEnd();
 
 	glEndList();
