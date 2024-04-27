@@ -1,6 +1,6 @@
 #include <GL/glut.h>
 #include <stdio.h>
-//#include <floppy.h>
+#include "flappyHeader.h"
 #include <iostream>
 #include <vector>
 #include <string>
@@ -167,4 +167,28 @@ void updateSynchronised()
 			treeX2 = 0;
 	}
 
+}
+
+void staticBird()
+{
+	glNewList(base + 0, GL_COMPILE);
+	glBegin(GL_QUADS);
+	glTexCoord2f(0.0, 0.0); glVertex3f(0, resY / 2, 0);
+	glTexCoord2f(1.0, 0.0); glVertex3f(30, resY / 2, 0);
+	glTexCoord2f(1.0, -1.0); glVertex3f(30, (resY / 2) + 30, 0);
+	glTexCoord2f(0.0, -1.0); glVertex3f(0, (resY / 2) + 30, 0);
+	glEnd();
+	glEndList();
+}
+
+void staticGround()
+{
+	glNewList(base + 1, GL_COMPILE);
+	glBegin(GL_QUADS);
+	glTexCoord2f(0.0, 0.0); glVertex3f(0, 0, 0);
+	glTexCoord2f(1.0, 0.0); glVertex3f(resX * 2, 0, 0);
+	glTexCoord2f(1.0, -1.0); glVertex3f(resX * 2, (resY * 10) / 100, 0);
+	glTexCoord2f(0.0, -1.0); glVertex3f(0, (resY * 10) / 100, 0);
+	glEnd();
+	glEndList();
 }
