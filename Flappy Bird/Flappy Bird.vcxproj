@@ -141,6 +141,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="draw.cpp" />
     <ClCompile Include="Flappy Bird.cpp" />
     <ClCompile Include="frameupdate.cpp" />
   </ItemGroup>
