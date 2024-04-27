@@ -1,7 +1,7 @@
 #pragma once
 extern double queuedMilliseconds, prev0, fps, responseTime;
-extern int resX, resY, movementX, insidebrick, gameover, startFlag, god;
-extern double movementY;
+extern int resX, resY, movX, insidebrick, gameover, startFlag, god;
+extern double movY;
 
 void adjustBrick();
 void draw();
