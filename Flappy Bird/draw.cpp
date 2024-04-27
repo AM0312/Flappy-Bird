@@ -192,3 +192,61 @@ void staticGround()
 	glEnd();
 	glEndList();
 }
+
+void staticSky()
+{
+	glNewList(base + 2, GL_COMPILE);
+	glBegin(GL_QUADS);
+	glTexCoord2f(0.0, 0.0); glVertex3f(0, 0, 0);
+	glTexCoord2f(1.0, 0.0); glVertex3f(resX * 2, 0, 0);
+	glTexCoord2f(1.0, -1.0); glVertex3f(resX * 2, resY, 0);
+	glTexCoord2f(0.0, -1.0); glVertex3f(0, resY, 0);
+	glEnd();
+	glEndList();
+}
+
+void staticTrees()
+{
+	glNewList(base + 3, GL_COMPILE);
+	glBegin(GL_QUADS);
+	glTexCoord2f(0.0, 0.0); glVertex3f(0, 0, 0);
+	glTexCoord2f(1.0, 0.0); glVertex3f(resX * 2, 0, 0);
+	glTexCoord2f(1.0, -1.0); glVertex3f(resX * 2, resY, 0);
+	glTexCoord2f(0.0, -1.0); glVertex3f(0, resY, 0);
+	glEnd();
+	glEndList();
+}
+
+void staticTrees_2()
+{
+	glNewList(base + 5, GL_COMPILE);
+	glBegin(GL_QUADS);
+	glTexCoord2f(0.0, 0.0); glVertex3f(0, 0, 0);
+	glTexCoord2f(1.0, 0.0); glVertex3f(resX * 2, 0, 0);
+	glTexCoord2f(1.0, -1.0); glVertex3f(resX * 2, resY, 0);
+	glTexCoord2f(0.0, -1.0); glVertex3f(0, resY, 0);
+	glEnd();
+	glEndList();
+}
+
+void staticBrick()
+{
+	//... BOTTOM BRICK	
+	glNewList(base + 4, GL_COMPILE);
+	glBegin(GL_QUADS);
+	glTexCoord2f(0.0, 0.0); glVertex3f(resX, -resY / 2, 0);
+	glTexCoord2f(1.0, 0.0); glVertex3f(resX + 50, -resY / 2, 0);
+	glTexCoord2f(1.0, -1.0); glVertex3f(resX + 50, resY / 2 - 38, 0);
+	glTexCoord2f(0.0, -1.0); glVertex3f(resX, resY / 2 - 38, 0);
+	glEnd();
+
+	//.... TOP BRICK
+	glBegin(GL_QUADS);
+	glTexCoord2f(0.0, 0.0); glVertex3f(resX, resY + resY / 2, 0);
+	glTexCoord2f(1.0, 0.0); glVertex3f(resX + 50, resY + resY / 2, 0);
+	glTexCoord2f(1.0, -1.0); glVertex3f(resX + 50, resY / 2 + 38, 0);
+	glTexCoord2f(0.0, -1.0); glVertex3f(resX, resY / 2 + 38, 0);
+	glEnd();
+
+	glEndList();
+}
