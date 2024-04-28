@@ -103,7 +103,7 @@ int main(int argc, char** argv) {
 display_choice:
 	if (glutGameModeGet(GLUT_GAME_MODE_POSSIBLE)) glutEnterGameMode();
 	else {
-		cout << "Select Screen Resolution, if you are unsure select Window mode" << endl
+		cout << "Select Screen Resolution" << endl
 			<< "1. 1920x1080" << endl
 			<< "2. 1600x900" << endl
 			<< "3. 1280x720" << endl
