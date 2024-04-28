@@ -14,6 +14,9 @@ vector<char> inputKeys;
 double v, grav, temp2;
 int cnt;
 
+int idx;
+char str[13];
+
 //... Reshaping setting & rendering
 void reshape(int w, int h) {
 	glMatrixMode(GL_PROJECTION);
@@ -61,4 +64,29 @@ void movPhysics() {
 			}
 		}
 	}
+}
+
+void keyboard(unsigned char key, int x, int y) {
+	if (key == 32)
+		startFlag = 1;
+	else
+		str[idx++] = key;
+
+	switch (key) {
+		case 27:
+			exit(0);
+			break;
+		case 32:
+			if (gameover == 0)
+				inputKeys.push_back('U');
+			break;
+	}
+	if (idx == 7)
+	{
+		if (strcmp(str, "god_mode") == 0)
+			god = 1;
+		else
+			idx = 0;
+	}
+
 }
