@@ -17,6 +17,8 @@ int cnt;
 int idx;
 char str[13];
 
+double queuedMilliseconds, prev0, fps, responseTime;
+
 //... Reshaping setting & rendering
 void reshape(int w, int h) {
 	glMatrixMode(GL_PROJECTION);
@@ -82,5 +84,51 @@ void keyboard(unsigned char key, int x, int y) {
 		if (strcmp(str, "god_mode") == 0) god = 1;
 		else idx = 0;
 	}
+}
 
+int main(int argc, char** argv) {
+	//.. update frame limits
+	queuedMilliseconds = 0;
+	prev0 = 0;
+	fps = 60;
+	responseTime = (1 / fps) * 1000;
+
+	//.. render resolutions
+	resX = 854;
+	resY = 480;
+
+	glutInit(&argc, argv);
+	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH);
+	glutGameModeString("10x10");
+display_choice:
+	if (glutGameModeGet(GLUT_GAME_MODE_POSSIBLE)) glutEnterGameMode();
+	else {
+		cout << "Select Screen Resolution, if you are unsure select Window mode" << endl
+			<< "1. 1920x1080" << endl
+			<< "2. 1600x900" << endl
+			<< "3. 1280x720" << endl
+			<< "4. 1368x768" << endl
+			<< "5. 1366x768" << endl
+			<< "6. 800x600" << endl
+			<< "7. 640x480" << endl;
+		int ch;
+		cin >> ch;
+		
+		if (ch == 1) glutGameModeString("1920x1080");
+		else if (ch == 2) glutGameModeString("1600x900");
+		else if (ch == 3) glutGameModeString("1280x720");
+		else if (ch == 4) glutGameModeString("1368x768");
+		else if (ch == 5) glutGameModeString("1366x768");
+		else if (ch == 6) glutGameModeString("800x600");
+		else glutGameModeString("640x480");
+		if (ch != 8)
+			goto display_choice;
+	}
+	glutIgnoreKeyRepeat(1);
+	glutDisplayFunc(draw);
+	glutIdleFunc(mixedStepLoop);
+	glutReshapeFunc(reshape);
+	glutKeyboardFunc(keyboard);
+	glutMainLoop();
+	return 0;
 }
