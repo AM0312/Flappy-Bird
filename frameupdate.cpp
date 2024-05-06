@@ -1,5 +1,5 @@
 #include <GL/glut.h>
-#include "flappyHeader.h"
+#include <flappy.h>
 
 void mixedStepLoop()
 {
