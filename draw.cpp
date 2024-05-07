@@ -135,7 +135,8 @@ void update(double temp)
 	if (syncBird >= 120) // bird winganimation running at 6fps
 	{
 		birdPhys++;
-		if (birdPhys == 3) birdPhys = 0;
+		if (birdPhys == 3)
+			birdPhys = 0;
 		syncBird -= 120;
 	}
 }
@@ -145,16 +146,20 @@ void updateSynchronised()
 	if (!gameover)
 	{
 		groundX -= 4;
-		if (groundX < -resX) groundX = 0;
+		if (groundX < -resX)
+			groundX = 0;
 
 		skyX -= 0.75;
-		if (skyX < -resX) skyX = 0;
+		if (skyX < -resX)
+			skyX = 0;
 
 		treeX -= 2;
-		if (treeX < -resX) treeX = 0;
+		if (treeX < -resX)
+			treeX = 0;
 
 		treeX2 -= 1.75;
-		if (treeX2 < -resX) treeX2 = 0;
+		if (treeX2 < -resX)
+			treeX2 = 0;
 	}
 }
 
@@ -286,8 +291,8 @@ void resetFunc()
 		insidebrick = 0;
 		startFlag = 0;
 	}
-	else gameoverAnimation();
-	
+	else
+		gameoverAnimation();
 }
 
 void adjustBrick() //.... GOD MODE
@@ -296,9 +301,12 @@ void adjustBrick() //.... GOD MODE
 	for (i = 0; i < obstacleBrick.size() && i == 0; i++)
 	{
 		delta = (movementY + (resY / 2) + 10) - (((resY / 2)) + obstacleBrick[i].y);
-		if (delta < 0) delta *= -1;
-		if ((movementY + (resY / 2) + 10) <= (((resY / 2)) + obstacleBrick[i].y)) obstacleBrick[i].y += -delta;
-		else obstacleBrick[i].y += delta;
+		if (delta < 0)
+			delta *= -1;
+		if ((movementY + (resY / 2) + 10) <= (((resY / 2)) + obstacleBrick[i].y))
+			obstacleBrick[i].y += -delta;
+		else
+			obstacleBrick[i].y += delta;
 	}
 }
 
@@ -313,9 +321,10 @@ void hitDetection()
 			{
 				insidebrick = 1;
 				// Bottom Brick Y original=(movementY+resY/2) 				Top Brick Y	 original=(movementY+resY/2+25)
-				if ((movementY + (resY / 2) + 10) >= (((resY / 2) - 38) + obstacleBrick[i].y) && (movementY + (resY / 2) + 30 - 5) <= (((resY / 2) + 38) + obstacleBrick[i].y)) hit1++;
-				else hit2++;
-				
+				if ((movementY + (resY / 2) + 10) >= (((resY / 2) - 38) + obstacleBrick[i].y) && (movementY + (resY / 2) + 30 - 5) <= (((resY / 2) + 38) + obstacleBrick[i].y))
+					hit1++;
+				else
+					hit2++;
 			}
 			if (hit2 >= 1)
 			{
@@ -343,7 +352,8 @@ void renderStrokeFont(int x, int y, int z, const char *temp)
 	glScalef(0.1, 0.1, 0.1);
 	const char *c;
 
-	for (c = temp; *c != '\0'; c++) glutStrokeCharacter(font_style, *c);
+	for (c = temp; *c != '\0'; c++)
+		glutStrokeCharacter(font_style, *c);
 	glPopMatrix();
 }
 
@@ -378,7 +388,7 @@ void draw()
 		//...SCORE & TEXT
 		glColor3f(0.5, 0.5, 0.5);
 
-		string str2 = ">FLOPPY BIRD >Movement: SPACEBAR >Exit: ESC ";
+		string str2 = ">FLAPPY BIRD >Movement: SPACEBAR >Exit: ESC ";
 		if (startFlag == 0)
 		{
 			const char *t2 = str2.c_str();

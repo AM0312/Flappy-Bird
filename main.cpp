@@ -44,7 +44,8 @@ void movePhysics()
 
 		if (inputKey[ii] == 'U')
 		{
-			if ((movementY + (resY / 2) + 50) < resY) movementY += 4;
+			if ((movementY + (resY / 2) + 50) < resY)
+				movementY += 4;
 			cnt++;
 		}
 		if (cnt >= 10)
@@ -59,7 +60,6 @@ void movePhysics()
 		//...GRAVITY
 		if (inputKey.size() == 0)
 		{
-			// 0.021125
 			if (gameover == 0)
 			{
 				tmp2 = resY / 2;
@@ -75,9 +75,11 @@ void movePhysics()
 			}
 			if ((movementY < -(resY / 2 - 30)))
 			{
-				if (god == 0) movementY -= v * v / 2 * g;
+				if (god == 0)
+					movementY -= v * v / 2 * g;
 			}
-			else movementY -= v * v / 2 * g;
+			else
+				movementY -= v * v / 2 * g;
 		}
 	}
 }
@@ -97,13 +99,16 @@ void keyboard(unsigned char key, int x, int y)
 		exit(0);
 		break;
 	case 32:
-		if (gameover == 0) inputKey.push_back('U');
+		if (gameover == 0)
+			inputKey.push_back('U');
 		break;
 	}
 	if (abcindex == 8)
 	{
-		if (strcmp(abc, "god_mode") == 0) god = 1;
-		else abcindex = 0;
+		if (strcmp(abc, "god_mode") == 0)
+			god = 1;
+		else
+			abcindex = 0;
 	}
 }
 
