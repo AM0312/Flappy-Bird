@@ -388,13 +388,25 @@ void draw()
 		//...SCORE & TEXT
 		glColor3f(0.5, 0.5, 0.5);
 
-		string str2 = ">FLAPPY BIRD >Movement: SPACEBAR >Exit: ESC ";
+		string str2 = "Movement: SPACEBAR ---- Exit: ESC ";
 		if (startFlag == 0)
 		{
 			const char *t2 = str2.c_str();
 			renderStrokeFont(100, 400, 1, t2);
-		}
+		
+			string str3 = "Submitted By:-";
+			const char* t3=str3.c_str();
+			renderStrokeFont(650,450,2,t3);
 
+			string name1 = "Ansh Midha";
+			string name2 = "Vaibhav Kapoor";
+			string name3 = "Jaskirat Singh";
+
+			const char* tn1=name1.c_str(),*tn2=name2.c_str(), *tn3=name3.c_str();
+			renderStrokeFont(650,425,2,tn1); 
+			renderStrokeFont(650,400,2,tn2);
+			renderStrokeFont(650,375,2,tn3);
+		}
 		string str = "Score: " + to_string(score) + "  HighScore: " + to_string(highscore);
 		const char *c = str.c_str();
 		renderStrokeFont(10, resY - 25, 0, c);
